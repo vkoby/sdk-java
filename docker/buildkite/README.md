@@ -7,7 +7,7 @@ The Dockerfile is the same for both.
 
 ## Testing the build locally
 To try out the build locally, start from the root folder of this repo 
-(temporal-java-client) and run the following commands.
+(temporal-java-sdk) and run the following commands.
 
 Build the container for 
 
@@ -48,7 +48,7 @@ Note that BuildKite will run basically the same commands.
 ## Testing the build in BuildKite
 Creating a PR against the master branch will trigger the BuildKite
 build. Members of the Temporal team can view the build pipeline here:
-https://buildkite.com/temporal/temporal-java-client
+https://buildkite.com/temporal/temporal-java-sdk
 
 Eventually this pipeline should be made public. It will need to ignore 
 third party PRs for safety reasons.

@@ -12,5 +12,5 @@ RUN apk update && apk add --virtual wget ca-certificates wget && apk add protobu
 # Git is needed in order to update the dls submodule
 RUN apk add --virtual git
 
-RUN mkdir /temporal-java-client
-WORKDIR /temporal-java-client
+RUN mkdir /temporal-java-sdk
+WORKDIR /temporal-java-sdk

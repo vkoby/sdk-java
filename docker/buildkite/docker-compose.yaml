@@ -51,7 +51,7 @@ services:
     depends_on:
       - temporal
     volumes:
-      - "../../:/temporal-java-client"
+      - "../../:/temporal-java-sdk"
 
   unit-test-test-service:
     build:
@@ -62,4 +62,4 @@ services:
       - "USER=unittest"
       - "USE_DOCKER_SERVICE=false"
     volumes:
-      - "../../:/temporal-java-client"
+      - "../../:/temporal-java-sdk"

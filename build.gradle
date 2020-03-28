@@ -7,10 +7,11 @@ buildscript {
 plugins {
     id 'com.github.sherter.google-java-format' version '0.8'
     id 'com.google.protobuf' version '0.8.11'
+    id 'com.palantir.git-version' version '0.12.3'
+    id 'jacoco'
     id 'java-library'
     id 'net.ltgt.errorprone' version '1.1.1'
     id 'net.minecrell.licenser' version '0.4.1'
-    id 'com.palantir.git-version' version '0.12.3'
 }
 
 repositories {
@@ -70,9 +71,9 @@ ext.getClientVersionName = { ->
     return split[0]
 }
 
-group='io.temporal'
+group = 'io.temporal'
 version = getVersionName()
-archivesBaseName="temporal-sdk"
+archivesBaseName = "temporal-sdk"
 
 description = '''Temporal Workflow Java SDK'''
 
@@ -228,6 +229,19 @@ test {
         exceptionFormat 'full'
         // Uncomment the following line if you want to see test logs in gradlew run.
         showStandardStreams true
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: ['**/proto/**'])
+        }))
     }
 }
 

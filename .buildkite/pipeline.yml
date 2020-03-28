@@ -19,4 +19,8 @@ steps:
       - docker-compose#v3.0.0:
           run: unit-test-docker
           config: docker/buildkite/docker-compose.yaml
+    artifact_paths:
+      - libs/*
+      - jacocoHtml/**
+      - reports/**
   - wait
